@@ -1,0 +1,487 @@
+<!doctype html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Inscrição - Cursinho Bonsucesso 2026</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
+    
+    <style>
+      html, body {
+        margin: 0;
+        padding: 0;
+        width: 100%;
+        font-family: system-ui, -apple-system, sans-serif;
+        background-color: #0056b3; 
+      }
+
+      header {
+        width: 100%;
+        padding: 15px 0;
+        display: flex;
+        justify-content: center;
+        background: #0056b3;
+      }
+
+      .logo {
+        height: clamp(40px, 8vw, 60px);
+        width: auto;
+        cursor: pointer;
+      }
+
+      /* CONTAINER DO FORMULÁRIO */
+      .form-section {
+        display: flex;
+        justify-content: center;
+        padding: 20px 20px 60px 20px;
+      }
+
+      .form-container {
+        background-color: #ffffff;
+        width: 100%;
+        max-width: 700px;
+        padding: 40px;
+        border-radius: 20px;
+        box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+        box-sizing: border-box;
+      }
+
+      .form-title {
+        text-align: center;
+        color: #0056b3;
+        font-size: 28px;
+        font-weight: 800;
+        margin-bottom: 10px;
+      }
+
+      .form-subtitle {
+        text-align: center;
+        color: #666;
+        margin-bottom: 30px;
+        font-size: 16px;
+      }
+
+      /* ESTILOS DOS CAMPOS */
+      form {
+        display: flex;
+        flex-direction: column;
+        gap: 20px;
+      }
+
+      label {
+        font-weight: 600;
+        color: #333;
+        margin-bottom: 5px;
+        display: block;
+      }
+
+      input[type="text"],
+      input[type="email"],
+      input[type="number"],
+      input[type="tel"],
+      input[type="date"],
+      select {
+        width: 100%;
+        padding: 12px;
+        border: 1px solid #ccc;
+        border-radius: 8px;
+        font-size: 16px;
+        box-sizing: border-box;
+        transition: border 0.3s;
+      }
+
+      input:focus, select:focus {
+        border-color: #0056b3;
+        outline: none;
+        box-shadow: 0 0 0 3px rgba(0, 86, 179, 0.1);
+      }
+
+      input[readonly] {
+        background-color: #f0f0f0;
+        color: #666;
+        cursor: not-allowed;
+      }
+
+      /* VALIDAÇÃO VISUAL */
+      .input-error {
+        border-color: #dc3545 !important;
+        background-color: #fff8f8;
+      }
+      
+      .input-success {
+        border-color: #28a745 !important;
+      }
+
+      .error-msg {
+        color: #dc3545;
+        font-size: 12px;
+        margin-top: 5px;
+        display: none; 
+      }
+
+      .form-row {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 20px;
+      }
+
+      /* RADIO BUTTONS */
+      .radio-group {
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+      }
+
+      .radio-option {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        font-size: 16px;
+        color: #444;
+        cursor: pointer;
+      }
+
+      input[type="radio"] {
+        width: 20px;
+        height: 20px;
+        accent-color: #0056b3;
+        cursor: pointer;
+      }
+
+      /* CAMPO OUTRO (OCULTO INICIALMENTE) */
+      #campo-outro-container {
+        display: none; /* Começa escondido */
+        margin-top: 10px;
+        margin-left: 30px; /* Indentação para ficar abaixo do radio */
+        animation: fadeIn 0.3s ease-in-out;
+      }
+
+      @keyframes fadeIn {
+        from { opacity: 0; transform: translateY(-5px); }
+        to { opacity: 1; transform: translateY(0); }
+      }
+
+      .btn-submit {
+        background-color: #0056b3;
+        color: #ffffff;
+        border: none;
+        padding: 18px;
+        font-size: 20px;
+        font-weight: 700;
+        border-radius: 50px;
+        cursor: pointer;
+        transition: 0.3s;
+        margin-top: 20px;
+        width: 100%;
+      }
+
+      .btn-submit:hover {
+        background-color: #004494;
+        transform: translateY(-2px);
+        box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+      }
+
+      @media (max-width: 600px) {
+        .form-container { padding: 25px; }
+        .form-row { grid-template-columns: 1fr; gap: 15px; }
+        #campo-outro-container { margin-left: 0; }
+      }
+    </style>
+  </head>
+  <body>
+
+    <header>
+      <a href="index.html">
+        <img src="https://fnfybutkvsozbvvacomo.supabase.co/storage/v1/object/public/imagens%20para%20plataforma/branco01.png" alt="Logo" class="logo">
+      </a>
+    </header>
+
+    <section class="form-section">
+      <div class="form-container">
+        <h1 class="form-title">Ficha de Inscrição</h1>
+        <p class="form-subtitle">Preencha seus dados para garantir sua vaga no Ciclo 2026.</p>
+
+        <form id="inscricao-form" action="#" method="POST">
+          
+          <div>
+            <label for="nome">Nome Completo:</label>
+            <input type="text" id="nome" name="nome" placeholder="Digite seu nome" required>
+          </div>
+
+          <div class="form-row">
+            <div>
+              <label for="idade">Idade:</label>
+              <input type="number" id="idade" name="idade" placeholder="Ex: 18" required>
+            </div>
+            <div>
+              <label for="nascimento">Data de Nascimento:</label>
+              <input type="date" id="nascimento" name="data_nascimento" required>
+            </div>
+          </div>
+
+          <div>
+            <label for="email">Seu melhor e-mail:</label>
+            <input type="email" id="email" name="email" placeholder="exemplo@gmail.com" required onblur="validarEmail(this)">
+            <span id="email-error" class="error-msg">Por favor, digite um e-mail válido (ex: nome@dominio.com).</span>
+          </div>
+
+          <div>
+            <label for="whatsapp">WhatsApp:</label>
+            <input type="tel" id="whatsapp" name="whatsapp" placeholder="(11) 99999-9999" maxlength="15" required onkeyup="mascaraTelefone(this)" onblur="validarTelefone(this)">
+            <span id="whatsapp-error" class="error-msg">Número inválido. Digite o DDD + Número (mínimo 10 dígitos).</span>
+          </div>
+
+          <hr style="border: 0; border-top: 1px solid #eee; margin: 10px 0;">
+
+          <div>
+            <label for="cep">CEP (Somente números):</label>
+            <input type="text" id="cep" name="cep" placeholder="00000000" maxlength="9" onblur="buscarCep(this.value)" required>
+            <small style="color: #666; font-size: 12px;">Ao sair do campo, o endereço será preenchido.</small>
+          </div>
+
+          <div class="form-row">
+            <div>
+              <label for="rua">Rua/Logradouro:</label>
+              <input type="text" id="rua" name="rua" required>
+            </div>
+            <div>
+              <label for="numero">Número:</label>
+              <input type="text" id="numero" name="numero" required>
+            </div>
+          </div>
+
+          <div class="form-row">
+            <div>
+              <label for="complemento">Complemento:</label>
+              <input type="text" id="complemento" name="complemento" placeholder="Ex: Casa 2">
+            </div>
+            <div>
+              <label for="bairro">Bairro:</label>
+              <input type="text" id="bairro" name="bairro" required>
+            </div>
+          </div>
+
+          <div class="form-row">
+            <div>
+              <label for="cidade">Cidade:</label>
+              <input type="text" id="cidade" name="cidade" readonly>
+            </div>
+            <div>
+              <label for="uf">Estado (UF):</label>
+              <input type="text" id="uf" name="uf" readonly>
+            </div>
+          </div>
+
+          <hr style="border: 0; border-top: 1px solid #eee; margin: 10px 0;">
+
+          <div>
+            <label for="escolaridade">Nível de escolaridade:</label>
+            <select id="escolaridade" name="escolaridade" required>
+              <option value="" disabled selected>Selecione uma opção</option>
+              <option value="fundamental_incompleto">Fundamental incompleto</option>
+              <option value="fundamental_cursando">Fundamental cursando</option>
+              <option value="fundamental_completo">Fundamental completo</option>
+              <option value="medio_incompleto">Médio incompleto</option>
+              <option value="medio_cursando">Médio cursando</option>
+              <option value="medio_completo">Médio completo</option>
+              <option value="superior_cursando">Superior cursando</option>
+              <option value="superior_completo">Superior completo</option>
+            </select>
+          </div>
+
+          <div>
+            <label for="escola">Escola em que estuda ou finalizou o ensino médio:</label>
+            <input type="text" id="escola" name="escola" placeholder="Nome da escola" required>
+          </div>
+
+          <div>
+            <label style="margin-bottom: 15px;">Onde ficou sabendo do ciclo 2025 do cursinho?</label>
+            <div class="radio-group">
+              <label class="radio-option">
+                <input type="radio" name="origem" value="escola" onchange="toggleOutro()"> Escola
+              </label>
+              <label class="radio-option">
+                <input type="radio" name="origem" value="redes_sociais" onchange="toggleOutro()"> Redes sociais
+              </label>
+              <label class="radio-option">
+                <input type="radio" name="origem" value="parentes" onchange="toggleOutro()"> Parentes
+              </label>
+              <label class="radio-option">
+                <input type="radio" name="origem" value="cartazes" onchange="toggleOutro()"> Cartazes
+              </label>
+              <label class="radio-option">
+                <input type="radio" name="origem" value="projetos_sociais" onchange="toggleOutro()"> Projetos sociais
+              </label>
+              <label class="radio-option">
+                <input type="radio" name="origem" value="amigos" onchange="toggleOutro()"> Amigos
+              </label>
+              <label class="radio-option">
+                <input type="radio" name="origem" value="outro" id="radio-outro" onchange="toggleOutro()"> Outro
+              </label>
+              
+              <div id="campo-outro-container">
+                <input type="text" id="input-outro" name="origem_outro" placeholder="Por favor, nos conte onde conheceu...">
+              </div>
+
+            </div>
+          </div>
+
+          <button type="submit" class="btn-submit">ENVIAR INSCRIÇÃO</button>
+
+        </form>
+      </div>
+    </section>
+
+    <script>
+      /* --- 1. LÓGICA DO CAMPO 'OUTRO' --- */
+      function toggleOutro() {
+        const radioOutro = document.getElementById('radio-outro');
+        const containerOutro = document.getElementById('campo-outro-container');
+        const inputOutro = document.getElementById('input-outro');
+
+        if (radioOutro.checked) {
+          containerOutro.style.display = 'block';
+          inputOutro.required = true; // Torna obrigatório digitar algo
+          inputOutro.focus();
+        } else {
+          containerOutro.style.display = 'none';
+          inputOutro.required = false; // Tira a obrigatoriedade
+          inputOutro.value = ''; // Limpa o campo se mudar de ideia
+        }
+      }
+
+      /* --- 2. MÁSCARA E VALIDAÇÃO DE TELEFONE --- */
+      function mascaraTelefone(input) {
+        let v = input.value;
+        v = v.replace(/\D/g, ""); 
+        v = v.replace(/^(\d{2})(\d)/g, "($1) $2"); 
+        v = v.replace(/(\d)(\d{4})$/, "$1-$2"); 
+        input.value = v;
+      }
+
+      function validarTelefone(input) {
+        let numeroLimpo = input.value.replace(/\D/g, "");
+        let errorMsg = document.getElementById('whatsapp-error');
+
+        if (numeroLimpo.length < 10 || numeroLimpo.length > 11) {
+          input.classList.add('input-error');
+          input.classList.remove('input-success');
+          errorMsg.style.display = 'block';
+          return false;
+        } else {
+          input.classList.remove('input-error');
+          input.classList.add('input-success');
+          errorMsg.style.display = 'none';
+          return true;
+        }
+      }
+
+      /* --- 3. VALIDAÇÃO DE EMAIL --- */
+      function validarEmail(input) {
+        const re = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+        let errorMsg = document.getElementById('email-error');
+
+        if (!re.test(input.value.toLowerCase())) {
+          input.classList.add('input-error');
+          input.classList.remove('input-success');
+          errorMsg.style.display = 'block';
+          return false;
+        } else {
+          input.classList.remove('input-error');
+          input.classList.add('input-success');
+          errorMsg.style.display = 'none';
+          return true;
+        }
+      }
+
+      /* --- 4. VALIDAÇÃO FINAL AO ENVIAR --- */
+      function validarFormularioFinal() {
+        let emailValido = validarEmail(document.getElementById('email'));
+        let telValido = validarTelefone(document.getElementById('whatsapp'));
+
+        if (!emailValido || !telValido) {
+          alert("Por favor, corrija os campos em vermelho antes de enviar.");
+          return false; 
+        }
+        return true; 
+      }
+
+      /* --- 5. CONSULTA DE CEP --- */
+      function buscarCep(valor) {
+        var cep = valor.replace(/\D/g, '');
+        if (cep != "") {
+          var validacep = /^[0-9]{8}$/;
+          if(validacep.test(cep)) {
+            document.getElementById('rua').value = "...";
+            document.getElementById('bairro').value = "...";
+            document.getElementById('cidade').value = "...";
+            document.getElementById('uf').value = "...";
+
+            var script = document.createElement('script');
+            script.src = 'https://viacep.com.br/ws/'+ cep + '/json/?callback=meu_callback';
+            document.body.appendChild(script);
+          } else {
+            limpa_formulário_cep();
+            alert("Formato de CEP inválido.");
+          }
+        } else {
+          limpa_formulário_cep();
+        }
+      };
+
+      function meu_callback(conteudo) {
+        if (!("erro" in conteudo)) {
+          document.getElementById('rua').value = (conteudo.logradouro);
+          document.getElementById('bairro').value = (conteudo.bairro);
+          document.getElementById('cidade').value = (conteudo.localidade);
+          document.getElementById('uf').value = (conteudo.uf);
+          document.getElementById('numero').focus();
+        } else {
+          limpa_formulário_cep();
+          alert("CEP não encontrado.");
+        }
+      }
+
+      function limpa_formulário_cep() {
+        document.getElementById('rua').value = ("");
+        document.getElementById('bairro').value = ("");
+        document.getElementById('cidade').value = ("");
+        document.getElementById('uf').value = ("");
+      }
+    </script>
+    <!-- Supabase client via CDN (UMD) -->
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2.46.1/dist/umd/supabase.js"></script>
+    <script>
+      // Configuração Supabase (anon key)
+      const SUPABASE_URL = "https://fnfybutkvsozbvvacomo.supabase.co";
+      const SUPABASE_KEY = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImZuZnlidXRrdnNvemJ2dmFjb21vIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NjAzODQ4MDAsImV4cCI6MjA3NTk2MDgwMH0.aoGfgWoJxXFWsEMNZvBTnFxCbL6KbY2NaJQTkJ_3gEQ";
+      const TABLE = "inscricoes_2026";
+
+      const sb = window.supabase.createClient(SUPABASE_URL, SUPABASE_KEY);
+      const form = document.getElementById('inscricao-form');
+
+      form.addEventListener('submit', async (e) => {
+        e.preventDefault();
+        // Reaproveita as validações existentes
+        if (!validarFormularioFinal()) return;
+
+        const fd = new FormData(form);
+        const payload = Object.fromEntries(fd.entries());
+
+        // Normalizações simples
+        if (payload.whatsapp) payload.whatsapp = payload.whatsapp.replace(/\D+/g, "");
+        if (payload.cep) payload.cep = payload.cep.replace(/\D+/g, "");
+
+        try {
+          const { error } = await sb.from(TABLE).insert(payload);
+          if (error) throw error;
+          alert('Inscrição enviada com sucesso!');
+          form.reset();
+        } catch (err) {
+          alert('Erro ao enviar inscrição: ' + err.message);
+        }
+      });
+    </script>
+
+  </body>
+</html>

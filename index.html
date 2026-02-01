@@ -1,0 +1,443 @@
+<!doctype html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Cursinho Bonsucesso 2026</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
+    
+    <style>
+      html, body {
+        margin: 0;
+        padding: 0;
+        width: 100%;
+        font-family: system-ui, -apple-system, sans-serif;
+        scroll-behavior: smooth;
+      }
+      
+      body {
+        background-color: #0056b3; 
+      }
+
+      header {
+        width: 100%;
+        padding: 10px 0;
+        display: flex;
+        justify-content: center;
+        background: #0056b3;
+      }
+
+      .logo {
+        height: clamp(40px, 8vw, 60px);
+        width: auto;
+      }
+
+      /* SEÇÃO 1: HERO */
+      .hero-section {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: 20px;
+        box-sizing: border-box;
+      }
+
+      .banner {
+        width: 100%;
+        max-width: 900px;
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: space-between;
+        gap: 40px;
+      }
+
+      .ad-text {
+        color: #ffffff;
+        font-weight: 900;
+        font-size: clamp(22px, 4.5vw, 46px);
+        line-height: 1.1;
+        margin: 0;
+        text-shadow: 2px 4px 10px rgba(0,0,0,0.2);
+        transition: all 0.3s ease; 
+      }
+
+      /* CLASSE PARA O "ATENÇÃO!" */
+      .atencao-highlight {
+         font-size: clamp(40px, 7vw, 75px) !important; 
+         margin-left: 80px !important; 
+      }
+
+      /* CLASSE PARA QUEBRAR A DATA NO MOBILE */
+      .break-date {
+        display: inline; 
+      }
+
+      .cat {
+        width: clamp(200px, 28vw, 360px);
+        height: auto;
+        filter: drop-shadow(0 15px 25px rgba(0,0,0,0.3));
+        animation: pulse 1800ms ease-in-out infinite;
+      }
+
+      /* SEÇÃO 2: INFO & BOTÃO */
+      .info-section {
+        background-color: #ffffff; 
+        padding: 80px 20px 40px 20px;
+        display: flex;
+        justify-content: center;
+        text-align: center;
+      }
+
+      .info-container {
+        max-width: 800px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 40px;
+      }
+
+      .info-text {
+        font-size: clamp(20px, 3.5vw, 26px);
+        line-height: 1.6;
+        color: #1a1a1a;
+      }
+
+      .btn-inscricao {
+        display: inline-block;
+        background-color: #0056b3;
+        color: #ffffff;
+        text-decoration: none;
+        padding: 18px 45px;
+        font-size: 20px;
+        font-weight: 700;
+        border-radius: 50px;
+        transition: 0.3s;
+        box-shadow: 0 10px 20px rgba(0, 86, 179, 0.2);
+      }
+
+      .btn-inscricao:hover {
+        transform: translateY(-3px);
+        background-color: #004494;
+      }
+
+      /* SEÇÃO 3: CARROSSEL */
+      .approvals-section {
+        background-color: #ffffff;
+        padding-bottom: 80px;
+        width: 100%;
+        overflow: hidden;
+      }
+
+      .swiper {
+        width: 100%;
+        max-width: 1100px;
+        padding: 40px 0;
+      }
+
+      .swiper-slide {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+        background: #f8faff;
+        border-radius: 20px;
+        padding: 30px 20px;
+        box-sizing: border-box;
+        border: 1px solid #e0e7ff;
+      }
+
+      .student-photo {
+        width: 180px;
+        height: 180px;
+        border-radius: 50%;
+        object-fit: cover;
+        margin-bottom: 20px;
+        border: 5px solid #0056b3;
+      }
+
+      .student-name {
+        font-weight: 800;
+        font-size: 22px;
+        color: #0056b3;
+        margin: 5px 0;
+      }
+
+      /* SEÇÃO 4: HISTÓRIA E VÍDEO */
+      .history-section {
+        background-color: #004494; 
+        color: #ffffff;
+        padding: 100px 20px;
+        display: flex;
+        justify-content: center;
+      }
+
+      .history-container {
+        max-width: 1100px;
+        width: 100%;
+        display: grid;
+        grid-template-columns: 1fr 1fr; 
+        align-items: center;
+        gap: 60px;
+      }
+
+      .history-content h2 {
+        font-size: clamp(28px, 4vw, 42px);
+        margin-bottom: 20px;
+      }
+
+      .history-content p {
+        font-size: clamp(18px, 2vw, 22px);
+        line-height: 1.7;
+        opacity: 0.95;
+      }
+
+      .video-column {
+        display: flex;
+        flex-direction: row; 
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 20px;
+      }
+
+      .video-wrapper {
+        width: 250px;
+        height: 250px;
+        border-radius: 20px;
+        overflow: hidden;
+        box-shadow: 0 20px 40px rgba(0,0,0,0.3);
+        background: #000;
+      }
+
+      .history-video {
+        width: 100%;
+        height: 100%;
+        object-fit: cover; 
+        display: block;
+      }
+
+      /* REDES SOCIAIS */
+      .social-section {
+        background-color: #ffffff;
+        padding: 80px 20px;
+        text-align: center;
+      }
+
+      .social-section h3 {
+        font-size: clamp(24px, 4vw, 32px);
+        color: #0056b3;
+        margin-bottom: 40px;
+        font-weight: 800;
+      }
+
+      .social-icons {
+        display: flex;
+        justify-content: center;
+        gap: clamp(30px, 8vw, 60px);
+      }
+
+      .social-icons a {
+        font-size: clamp(40px, 6vw, 55px);
+        color: #0056b3;
+        transition: transform 0.3s ease, color 0.3s ease;
+      }
+
+      .social-icons a:hover {
+        transform: scale(1.2);
+        color: #003366;
+      }
+
+      /* Responsividade */
+      @media (max-width: 900px) {
+        .history-container {
+          grid-template-columns: 1fr; 
+          text-align: center;
+        }
+        .banner { flex-direction: column; text-align: center; gap: 20px; }
+        .hero-section { padding-top: 40px; }
+        
+        .atencao-highlight { margin-left: 0 !important; }
+
+        .break-date {
+          display: block !important;
+          margin-top: 5px; 
+          font-size: 1.2em; 
+        }
+      }
+
+      .hidden { opacity: 0; visibility: hidden; }
+      .fade { animation: ad-fade 600ms ease-out; }
+      @keyframes ad-fade { from { opacity: 0; transform: translateY(15px); } to { opacity: 1; transform: translateY(0); } }
+      @keyframes pulse { 0%, 100% { transform: scale(1); } 50% { transform: scale(1.05); } }
+    </style>
+  </head>
+  <body>
+
+    <header>
+      <img src="https://fnfybutkvsozbvvacomo.supabase.co/storage/v1/object/public/imagens%20para%20plataforma/branco01.png" alt="Logo" class="logo">
+    </header>
+
+    <section class="hero-section">
+      <div id="main-banner" class="banner">
+        <div class="text-area">
+          <p id="ad-text" class="ad-text"></p>
+        </div>
+        <div class="cat-container">
+          <img class="cat" src="https://fnfybutkvsozbvvacomo.supabase.co/storage/v1/object/public/video/Gemini_Generated_Image_7oj9q7oj9q7oj9q7-removebg-preview%20(1).png" alt="Gatinho">
+        </div>
+      </div>
+    </section>
+
+    <section class="info-section">
+      <div class="info-container">
+        <p class="info-text">
+          Pare de apenas sonhar com a universidade e comece a liderar o seu futuro: 
+          venha para onde alunos reais conquistam a aprovação.<br><br>
+          O <strong>Cursinho Bonsucesso</strong> entrega a sua aprovação.
+        </p>
+        <a href="inscricao.html" class="btn-inscricao">FAZER INSCRIÇÃO</a>
+      </div>
+    </section>
+
+    <section class="approvals-section">
+      <div class="swiper mySwiper">
+        <div class="swiper-wrapper">
+          <div class="swiper-slide">
+            <img src="https://fnfybutkvsozbvvacomo.supabase.co/storage/v1/object/public/aprovados/diogo%20lima%20marketing%20fatec.png" alt="Diogo Lima" class="student-photo">
+            <p class="student-name">Diogo Lima</p>
+            <p class="student-course">Marketing - Fatec</p>
+          </div>
+          <div class="swiper-slide">
+            <img src="https://fnfybutkvsozbvvacomo.supabase.co/storage/v1/object/public/aprovados/Isabela%20fernandes%20Letras%20ingles%20unifesp.png" alt="Isabela Fernandes" class="student-photo">
+            <p class="student-name">Isabela Fernandes</p>
+            <p class="student-course">Letras Inglês - Unifesp</p>
+          </div>
+          <div class="swiper-slide">
+            <img src="https://fnfybutkvsozbvvacomo.supabase.co/storage/v1/object/public/aprovados/leticia%20costas%20textil%20e%20moda%20usp.png" alt="Letícia Costas" class="student-photo">
+            <p class="student-name">Letícia Costas</p>
+            <p class="student-course">Têxtil e Moda - USP</p>
+          </div>
+          <div class="swiper-slide">
+            <img src="https://fnfybutkvsozbvvacomo.supabase.co/storage/v1/object/public/aprovados/leticia%20matias%20psicologia%20unicsul.png" alt="Letícia Matias" class="student-photo">
+            <p class="student-name">Letícia Matias</p>
+            <p class="student-course">Psicologia - Unicsul</p>
+          </div>
+          <div class="swiper-slide">
+            <img src="https://fnfybutkvsozbvvacomo.supabase.co/storage/v1/object/public/aprovados/Marcos%20vinicius%20licenciatura%20de%20matematica%20usp.png" alt="Marcos Vinicius" class="student-photo">
+            <p class="student-name">Marcos Vinicius</p>
+            <p class="student-course">Licenciatura Matemática - USP</p>
+          </div>
+          <div class="swiper-slide">
+            <img src="https://fnfybutkvsozbvvacomo.supabase.co/storage/v1/object/public/aprovados/melissa%20alves%20fisioterapia%20santa%20casa%20de%20sp.png" alt="Melissa Alves" class="student-photo">
+            <p class="student-name">Melissa Alves</p>
+            <p class="student-course">Fisioterapia - Santa Casa SP</p>
+          </div>
+          <div class="swiper-slide">
+            <img src="https://fnfybutkvsozbvvacomo.supabase.co/storage/v1/object/public/aprovados/sabrina%20chaves%20comunicacao%20umc%20.png" alt="Sabrina Chaves" class="student-photo">
+            <p class="student-name">Sabrina Chaves</p>
+            <p class="student-course">Comunicação - UMC</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="history-section">
+      <div class="history-container">
+        <div class="history-content">
+          <h2>Somos mais que um preparatório</h2>
+          <p>
+            Somos um movimento de transformação. No Cursinho Comunitário Bonsucesso, 
+            oferecemos aulas interativas em um ambiente acolhedor. Nossa metodologia 
+            vai além da sala de aula, com visitas culturais, simulados e preparação 
+            para o pensamento crítico — tudo para você vencer os desafios do vestibular.
+          </p>
+        </div>
+        <div class="video-column">
+          <div class="video-wrapper">
+            <video class="history-video" controls>
+              <source src="https://fnfybutkvsozbvvacomo.supabase.co/storage/v1/object/public/video/SnapInsta.to_AQNrcGypoHgKkt2xA3W0S7LvHjgISe7OwMC03PLWAyG0_KhmjPUphGN-I-rkR18HKsFXnb_wPrS9TJ1N0H8seJLLJY1_45uJPdRAS2w.mp4" type="video/mp4">
+              Seu navegador não suporta vídeos.
+            </video>
+          </div>
+          <div class="video-wrapper">
+            <video class="history-video" controls>
+              <source src="https://fnfybutkvsozbvvacomo.supabase.co/storage/v1/object/public/video/vistausp.mp4" type="video/mp4">
+              Seu navegador não suporta vídeos.
+            </video>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="social-section">
+      <h3>Nos acompanhe em nossas redes sociais</h3>
+      <div class="social-icons">
+        <a href="https://www.instagram.com/cursinhobonsucesso.ccb" target="_blank" aria-label="Instagram">
+          <i class="fab fa-instagram"></i>
+        </a>
+        <a href="https://www.facebook.com/CursinhoComunitarioBonsucesso" target="_blank" aria-label="Facebook">
+          <i class="fab fa-facebook"></i>
+        </a>
+        <a href="https://www.youtube.com/@CursoComunit%C3%A1rioBonsucesso" target="_blank" aria-label="YouTube">
+          <i class="fab fa-youtube"></i>
+        </a>
+      </div>
+    </section>
+
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+    <script>
+      const swiper = new Swiper(".mySwiper", {
+        slidesPerView: 1, spaceBetween: 30, loop: true,
+        autoplay: { delay: 3000 },
+        pagination: { el: ".swiper-pagination", clickable: true },
+        breakpoints: { 768: { slidesPerView: 2 }, 1024: { slidesPerView: 3 } }
+      });
+
+      const messages = [
+          "ATENÇÃO!", 
+          "Inscrições abertas Cursinho 2026.", 
+          "a partir dos dias <span class='break-date'>01/02 ao 21/02.</span>", 
+          "Não fique de fora!"
+      ];
+      
+      const textEl = document.getElementById('ad-text');
+      const banner = document.getElementById('main-banner');
+      let idx = 0;
+
+      function cycle() {
+        if (idx < messages.length) {
+          banner.classList.remove('hidden');
+          textEl.innerHTML = messages[idx];
+          
+          textEl.classList.remove('atencao-highlight');
+
+          if (messages[idx] === "ATENÇÃO!") {
+              textEl.classList.add('atencao-highlight');
+          } 
+
+          textEl.classList.remove('fade');
+          void textEl.offsetWidth; 
+          textEl.classList.add('fade');
+          idx++;
+          setTimeout(cycle, 3000);
+        } else {
+          // --- MUDANÇA AQUI: ---
+          // Em vez de esconder, exibimos a frase final e removemos classes especiais
+          banner.classList.remove('hidden');
+          textEl.classList.remove('atencao-highlight');
+          
+          textEl.textContent = "O sucesso de todos depende da participação de cada um";
+          
+          // Efeito de fade para a frase final
+          textEl.classList.remove('fade');
+          void textEl.offsetWidth; 
+          textEl.classList.add('fade');
+
+          // Reinicia o ciclo após 10 segundos
+          setTimeout(() => { idx = 0; cycle(); }, 10000);
+        }
+      }
+      cycle();
+    </script>
+  </body>
+</html>
