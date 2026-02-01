@@ -449,7 +449,6 @@
         document.getElementById('uf').value = ("");
       }
     </script>
-    <!-- Supabase client via CDN (UMD) -->
     <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2.46.1/dist/umd/supabase.js"></script>
     <script>
       // Configuração Supabase (anon key)
@@ -476,7 +475,10 @@
           const { error } = await sb.from(TABLE).insert(payload);
           if (error) throw error;
           alert('Inscrição enviada com sucesso!');
-          form.reset();
+          
+          // --- REDIRECIONAMENTO PARA PÁGINA INICIAL ---
+          window.location.href = "index.html"; 
+          
         } catch (err) {
           alert('Erro ao enviar inscrição: ' + err.message);
         }
