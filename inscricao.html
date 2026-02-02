@@ -475,10 +475,11 @@
         try {
           const { error } = await sb.from(TABLE).insert(payload);
           if (error) throw error;
-          alert('Inscrição enviada com sucesso!');
           
-          // --- REDIRECIONAMENTO PARA PÁGINA INICIAL ---
-          window.location.href = "index.html"; 
+          alert('Inscrição enviada com sucesso! Você será redirecionado para o nosso grupo do WhatsApp.');
+          
+          // --- REDIRECIONAMENTO PARA O GRUPO DE WHATSAPP ---
+          window.location.href = "http://cursocomunitariobonsucesso.com.br/acessoinicial"; 
           
         } catch (err) {
           alert('Erro ao enviar inscrição: ' + err.message);
@@ -488,5 +489,3 @@
 
   </body>
 </html>
-
-
